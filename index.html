@@ -3,27 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UTS II-2100 KIPP</title>
+  <title>UTS II-2100 KIPP - Indah Ramadhani</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    body {font-family: 'Times New Roman', Times, serif; margin: 0; display: flex;}
+    /* 🌿 RESET & BODY */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      background: #f9fafc;
+      color: #333;
+    }
+
+    /* 🌸 SIDEBAR */
     .sidebar {
-      width: 250px; background-color: #f8f8f8; height: 100vh;
-      padding: 20px; box-sizing: border-box; overflow-y: auto;
-      border-right: 1px solid #ddd;
+      width: 260px;
+      background: #ffffff;
+      height: 100vh;
+      border-right: 1px solid #e4e4e4;
+      padding: 25px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      overflow-y: auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
     }
-    .sidebar h2 {font-size: 18px; margin-bottom: 10px;}
+
+    .sidebar h2 {
+      font-size: 20px;
+      color: #5a2d82;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
     .sidebar a {
-      display: block; text-decoration: none; color: #1a0dab; margin-bottom: 8px;
+      display: block;
+      text-decoration: none;
+      color: #444;
+      margin: 8px 0;
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-size: 15px;
     }
-    .sidebar a:hover {text-decoration: underline;}
-    .content {flex-grow: 1; padding: 40px; overflow-y: auto;}
-    .header h1 {font-size: 32px; margin: 0;}
-    .header h3 {color: blueviolet; font-weight: normal; margin: 5px 0 20px 0;}
-    .section {margin-bottom: 60px;}
-    .section h2 {font-size: 24px; border-bottom: 2px solid #ddd; padding-bottom: 5px;}
-    .section h3 {font-size: 20px; margin-top: 30px;}
-    p {line-height: 1.6; text-align: justify;}
-    a {color: #1a0dab;}
+
+    .sidebar a:hover {
+      background: #f2ecfb;
+      color: #5a2d82;
+      transform: translateX(5px);
+    }
+
+    /* 🌼 CONTENT AREA */
+    .content {
+      margin-left: 260px;
+      flex-grow: 1;
+      padding: 50px;
+      overflow-x: hidden;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      color: #5a2d82;
+      margin-bottom: 5px;
+    }
+
+    .header h3 {
+      color: #888;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 70px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      font-size: 24px;
+      color: #5a2d82;
+      border-bottom: 2px solid #e5d4f3;
+      padding-bottom: 6px;
+      margin-bottom: 15px;
+    }
+
+    .section h3 {
+      font-size: 20px;
+      color: #333;
+      margin-top: 25px;
+    }
+
+    p {
+      line-height: 1.7;
+      text-align: justify;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    a {
+      color: #6c42c2;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* 🌷 SCROLLBAR STYLING */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c3a7ec;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #a984e3;
+    }
+
+    /* 🌺 RESPONSIVE */
+    @media (max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
+      .content {
+        margin-left: 0;
+        padding: 25px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -40,7 +171,7 @@
     <a href="#references">References</a>
   </div>
 
-  <!-- Konten utama -->
+  <!-- Main Content -->
   <div class="content">
     <div class="header">
       <h1>Indah Ramadhani</h1>
@@ -51,23 +182,21 @@
 
     <div class="section" id="berjumpa">
       <h2>Welcome!</h2>
-      <img src="images/welcome.jpg" alt="Welcome">
       <p>Halo, semuanyaa! Website ini aku buat sebagai bagian dari mata kuliah <b>II-2100 Komunikasi dan Interpersonal Publik</b>, dari program studi Sistem dan Teknologi Informasi, Institut Teknologi Bandung (ITB).</p>
-      <p>Melalui halaman ini, aku ingin berbagi perjalanan belajar dan refleksi pribadi tentang bagaimana komunikasi bukan hanya soal berbicara, tapi juga tentang <i>understanding, connection,</i> dan <i>growth</i>. Selama kuliah ini, aku mulai belajar untuk lebih sadar dengan cara aku berinteraksi, mulai dari mendengarkan orang lain dengan empati, menyampaikan pendapat dengan jujur, hingga belajar terbuka terhadap perbedaan.</p>
-      <p>Untuk aku, komunikasi yang baik bukan hanya membuat orang lain paham apa yang kita maksud, tetapi juga membuat kita lebih mengenal diri sendiri. Situs ini menjadi tempat kecil untuk menuliskan proses itu seperti <i>ups and downs</i>, hal-hal yang aku pelajari, dan bagaimana semuanya berpengaruh ke cara berhubungan dengan orang di sekitarku.</p>
+      <p>Melalui halaman ini, aku ingin berbagi perjalanan belajar dan refleksi pribadi tentang bagaimana komunikasi bukan hanya soal berbicara, tapi juga tentang <i>understanding, connection,</i> dan <i>growth</i>.</p>
+      <p>Untuk aku, komunikasi yang baik bukan hanya membuat orang lain paham apa yang kita maksud, tetapi juga membuat kita lebih mengenal diri sendiri.</p>
     </div>
 
     <div class="section" id="uts1">
       <h2>UTS-1 All About Me</h2>
       <h3>1.1 Kisah yang Membentuk Diri Anda: Mengenal Kekuatan Identitas Naratif</h3>
-      <p>Manusia adalah pencerita alami. Sejak zaman dahulu, kita selalu berusaha memahami kekacauan hidup dengan merangkainya menjadi sebuah cerita. Para ahli bahkan menyebut kita sebagai “organisme pencerita” (<i>storytelling organisms</i>) yang menjalani “kehidupan yang penuh cerita” (<i>storied lives</i>).</p>
-      <p>Proses ini bukanlah sekadar menyusun fakta, melainkan sebuah proses aktif untuk menciptakan makna. <a href="#">Hayu dengar poscastnya</a></p>
-      <p>Kisah personal yang terus berkembang inilah yang disebut para psikolog sebagai <b>“identitas naratif”</b> — sebuah cerita yang kita bangun untuk memahami keberadaan kita, dengan menghubungkan masa lalu, masa kini, dan masa depan kita menjadi satu kesatuan yang utuh.</p>
+      <p>Manusia adalah pencerita alami. Sejak zaman dahulu, kita selalu berusaha memahami kekacauan hidup dengan merangkainya menjadi sebuah cerita.</p>
+      <p><a href="#">🎧 Hayu dengar podcastnya</a></p>
     </div>
 
     <div class="section" id="uts2">
       <h2>UTS-2 My Songs for You</h2>
-      <p>Musik adalah bahasa emosi yang universal. Dalam bagian ini, saya membagikan lagu-lagu yang merepresentasikan perjalanan hidup dan nilai-nilai yang saya pegang.</p>
+      <p>Musik adalah bahasa emosi yang universal.</p>
       <ul>
         <li><i>What a Wonderful World</i> – Louis Armstrong</li>
         <li><i>Fix You</i> – Coldplay</li>
@@ -82,37 +211,12 @@
 
     <div class="section" id="uts4">
       <h2>UTS-4 My SHAPE</h2>
-      <p>SHAPE adalah akronim dari Spiritual Gifts, Heart, Abilities, Personality, dan Experiences. Bagian ini menjelaskan bagaimana setiap aspek membentuk diri saya dalam melayani orang lain.</p>
+      <p>SHAPE adalah akronim dari Spiritual Gifts, Heart, Abilities, Personality, dan Experiences.</p>
     </div>
 
     <div class="section" id="uts5">
       <h2>UTS-5 My Personal Reviews</h2>
       <p>Pada bagian ini saya merefleksikan pembelajaran yang sudah dijalani selama proses asesmen berlangsung.</p>
-    </div>
-
-    <div class="section" id="uas1">
-      <h2>UAS-1 My Concepts</h2>
-      <p>Konsep utama yang saya kembangkan dalam proyek ini adalah “Engineer as Empowerer”: peran insinyur bukan hanya menciptakan teknologi, tetapi juga memperkuat manusia di baliknya.</p>
-    </div>
-
-    <div class="section" id="uas3a">
-      <h2>UAS-3 My Opinions</h2>
-      <p>Pandangan pribadi terhadap perkembangan teknologi masa kini dan dampaknya terhadap kemanusiaan.</p>
-    </div>
-
-    <div class="section" id="uas3b">
-      <h2>UAS-3 My Innovations</h2>
-      <p>Inovasi yang saya gagas berfokus pada pendekatan human-centered design dalam pendidikan teknik.</p>
-    </div>
-
-    <div class="section" id="uas4">
-      <h2>UAS-4 My Knowledge</h2>
-      <p>Bagian ini berisi rangkuman teori, konsep, dan hasil studi literatur yang memperkuat dasar ilmiah dari karya saya.</p>
-    </div>
-
-    <div class="section" id="uas5">
-      <h2>UAS-5 My Professional Reviews</h2>
-      <p>Refleksi profesional tentang perkembangan diri dalam konteks akademik dan praktik keinsinyuran.</p>
     </div>
 
     <div class="section" id="summary">
@@ -126,5 +230,20 @@
       2. Frankl, V. (1946). <i>Man’s Search for Meaning.</i></p>
     </div>
   </div>
+
+  <!-- 🌟 Scroll Animation Script -->
+  <script>
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
