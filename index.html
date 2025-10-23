@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    /* 🌿 RESET */
     * {
       margin: 0;
       padding: 0;
@@ -16,25 +17,28 @@
       scroll-behavior: smooth;
     }
 
+    /* 🌸 BODY */
     body {
       font-family: 'Poppins', sans-serif;
+      display: flex;
+      min-height: 100vh;
       color: #2f2f2f;
       background: linear-gradient(135deg, #fdfbfb 0%, #f7f0ff 100%);
       background-attachment: fixed;
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
+      transition: all 0.3s ease;
     }
 
-    /* SIDEBAR KIRI */
+    /* 🌼 SIDEBAR */
     .sidebar {
       width: 250px;
       background: #fff;
+      height: 100vh;
       border-right: 1px solid #eee;
       padding: 30px 20px;
       position: fixed;
-      height: 100%;
-      overflow-y: auto;
+      left: 0;
+      top: 0;
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.05);
     }
 
     .sidebar h2 {
@@ -49,9 +53,9 @@
       display: block;
       color: #a56d52;
       text-decoration: none;
-      margin: 8px 0;
-      padding: 10px 12px;
-      border-radius: 10px;
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 12px;
       transition: 0.3s;
       font-weight: 500;
     }
@@ -59,100 +63,65 @@
     .sidebar a:hover {
       background: #f9efe9;
       color: #5d3827;
-    }
-
-    /* TABLE OF CONTENTS KANAN */
-    .toc {
-      width: 250px;
-      background: #fff;
-      border-left: 1px solid #eee;
-      padding: 25px 15px;
-      position: fixed;
-      right: 0;
-      height: 100%;
-      overflow-y: auto;
-      box-shadow: -2px 0 10px rgba(0,0,0,0.05);
-    }
-
-    .toc h3 {
-      font-family: 'Playfair Display', serif;
-      color: #6a3f2b;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .toc a {
-      display: block;
-      text-decoration: none;
-      color: #7a5c48;
-      font-size: 14px;
-      margin: 8px 0;
-      transition: 0.2s;
-    }
-
-    .toc a:hover {
-      color: #3b2416;
       transform: translateX(5px);
     }
 
-    /* KONTEN UTAMA */
-    .main {
+    /* 🌷 CONTENT */
+    .content {
+      margin-left: 260px;
+      padding: 60px;
       flex: 1;
-      margin: 0 260px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 40px;
-    }
-
-    /* SEARCH BAR */
-    .search-container {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .search-container input {
-      width: 60%;
-      padding: 10px 15px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      outline: none;
-      transition: 0.3s;
-    }
-
-    .search-container input:focus {
-      border-color: #b8896e;
-      box-shadow: 0 0 8px rgba(184,137,110,0.3);
-    }
-
-    /* SECTION */
-    .section {
-      width: 100%;
-      max-width: 850px;
-      background: rgba(255,255,255,0.85);
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      display: none;
-      animation: fadeIn 0.6s ease;
-    }
-
-    .section.active {
-      display: block;
+      animation: fadeIn 1s ease-in;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #6a3f2b;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    }
+
+    .header h3 {
+      color: #8a8a8a;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .section {
+      margin-bottom: 70px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease-out;
+      background: rgba(255,255,255,0.7);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .section h2 {
       font-family: 'Playfair Display', serif;
-      color: #4a2b1f;
       font-size: 26px;
-      margin-bottom: 10px;
+      color: #4a2b1f;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #e4c8b0;
+      padding-bottom: 5px;
+    }
+
+    .section h3 {
+      color: #705947;
+      margin-top: 20px;
+      font-weight: 600;
     }
 
     p {
@@ -161,78 +130,63 @@
       margin-bottom: 15px;
     }
 
-    /* NAV BUTTONS ANTAR SECTION */
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 25px;
-    }
-
-    .nav-buttons button {
-      background-color: #7b4b36;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .nav-buttons button:hover {
-      background-color: #5a3224;
-    }
-
+    /* 🌼 EMBED VIDEO */
     iframe {
       display: block;
       margin: 20px auto;
-      border-radius: 10px;
-      width: 100%;
-      max-width: 560px;
-      height: 315px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      max-width: 100%;
     }
 
-    /* RESPONSIVE */
+    /* 🌺 RESPONSIVE */
     @media (max-width: 900px) {
-      .sidebar, .toc { display: none; }
-      .main { margin: 0; padding: 20px; }
-      .search-container input { width: 90%; }
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        border-bottom: 1px solid #eee;
+      }
+      .content {
+        margin-left: 0;
+        padding: 30px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- SIDEBAR -->
   <div class="sidebar">
     <h2>Indah Ramadhani</h2>
-    <a href="#" onclick="showSection(0)">Welcome!</a>
-    <a href="#" onclick="showSection(1)">All About Me</a>
-    <a href="#" onclick="showSection(2)">My Songs for You</a>
-    <a href="#" onclick="showSection(3)">My Stories</a>
-    <a href="#" onclick="showSection(4)">My SHAPE</a>
-    <a href="#" onclick="showSection(5)">Reviews</a>
+    <a href="#berjumpa">Welcome!</a>
+    <a href="#uts1">All About Me</a>
+    <a href="#uts2">My Songs for You</a>
+    <a href="#uts3">My Stories</a>
+    <a href="#uts4">My SHAPE</a>
+    <a href="#uts5">Reviews</a>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="main">
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="🔍 Cari di halaman ini..." onkeyup="searchText()">
+  <div class="content">
+    <div class="header">
+      <h1>Indah Ramadhani</h1>
+      <h3>UTS II-2100 KIPP</h3>
+      <p><b>Author:</b> 18224037 Indah Ramadhani</p>
+      <p><b>Published:</b> Oktober 19, 2025</p>
     </div>
 
-    <!-- SECTION 1 -->
-    <div class="section active" id="welcome">
-        <h2>Welcome!</h2>
-        <img src="images/haii.jpg" alt="Welcome Image" width="400" style="display:block; margin:20px auto; border-radius:12px;">
-        <p>Halo, semuanyaa! Website ini aku buat sebagai bagian dari mata kuliah <b>II-2100 Komunikasi dan Interpersonal Publik</b>, dari program studi Sistem dan Teknologi Informasi, Institut Teknologi Bandung (ITB).</p>
-        <p>Melalui halaman ini, aku ingin berbagi perjalanan belajar dan refleksi pribadi tentang bagaimana komunikasi bukan hanya soal berbicara, tapi juga tentang <i>understanding, connection,</i> dan <i>growth</i>.</p>
-        <p>Untuk aku, komunikasi yang baik bukan hanya membuat orang lain paham apa yang kita maksud, tetapi juga membuat kita lebih mengenal diri sendiri.</p>
+    <div class="section" id="berjumpa">
+      <h2>Welcome!</h2>
+      <img src="images/haii.jpg" alt="Welcome Image" width="400" style="display:block; margin:20px auto; border-radius:12px;">
 
-      <div class="nav-buttons">
-        <span></span>
-        <button onclick="showSection(1)">Next →</button>
-      </div>
+      <p>Halo, semuanyaa! Website ini aku buat sebagai bagian dari mata kuliah <b>II-2100 Komunikasi dan Interpersonal Publik</b>, dari program studi Sistem dan Teknologi Informasi, Institut Teknologi Bandung (ITB).</p>
+      <p>Melalui halaman ini, aku ingin berbagi perjalanan belajar dan refleksi pribadi tentang bagaimana komunikasi bukan hanya soal berbicara, tapi juga tentang <i>understanding, connection,</i> dan <i>growth</i>.</p>
+      <p>Untuk aku, komunikasi yang baik bukan hanya membuat orang lain paham apa yang kita maksud, tetapi juga membuat kita lebih mengenal diri sendiri.</p>
     </div>
 
-    <!-- SECTION 2 -->
     <div class="section" id="uts1">
       <h2>UTS 1: All About Me</h2>
       <h3>Who I Am and How I See MySelf</h3>
@@ -246,52 +200,43 @@
       <h3>Reflection and Growth</h3>
       <p>Melalui proses ini, aku sadar kalau memahami diri sendiri adalah langkah pertama untuk membangun komunikasi yang sehat. Empati dan kejujuran jadi dua hal yang paling berharga buatku. Empati bikin aku bisa memahami orang lain lebih dalam, sedangkan kejujuran bikin hubungan jadi lebih tulus dan ringan. Aku juga belajar menerima bahwa kadang aku bisa salah, bisa gugup, atau bahkan diam, dan itu nggak apa-apa. <i>Growth takes time </i>. Yang penting aku terus belajar dan berusaha untuk hadir sepenuhnya dalam setiap percakapan.</p>
       <p><i>In the end</i>, <b>“All About Me”</b> bukan cuma tentang mendeskripsikan siapa aku hari ini, tapi juga tentang proses aku menjadi versi diriku yang lebih baik, <b><i>one conversation at a time</i></b>. 🌱</p>
-      <div class="nav-buttons">
-        <button onclick="showSection(0)">← Back</button>
-        <button onclick="showSection(2)">Next →</button>
-      </div>
+
     </div>
 
-    <!-- SECTION 3 -->
     <div class="section" id="uts2">
       <h2>UTS 2: My Songs for You</h2>
-        <p><i>"Iris" by Goo Goo Dolls</i>
-            <div style="text-align:center; margin-top:20px;">
-              <iframe width="560" height="315" 
-              src="https://www.youtube.com/embed/NdYWuo9OFAw?si=XYsmOPO_qMqQFk1c"
-              title="Iris by Goo Goo Dolls"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>       
-        </p>
-        <h3>The Song That Hits Different</h3>
-        <p>Dari sekian banyak lagu yang pernah aku dengar, “Iris” by Goo Goo Dolls selalu punya tempat spesial. Lagu ini terdengar klasik, tapi setiap kali aku dengar ulang, rasanya tetap hangat dan real. Buatku, lagu ini bukan cuma tentang cinta, tapi tentang keinginan untuk <em>be understood, not just seen</em>.</p>
-        <p>Bagian yang paling kena itu waktu liriknya bilang:<br> <em>“I just want you to know who I am.”</em></p>
-        <p>Kalimat sesederhana itu bisa jadi refleksi paling jujur dari hati seseorang yang pengin dipahami tanpa topeng. Kadang kita juga ingin hal yang sama, nggak harus dimengerti sepenuhnya, tapi cukup ada seseorang yang benar-benar mau tahu siapa kita tanpa menilai. Lagu ini ngingetin aku bahwa jujur sama diri sendiri itu juga bentuk komunikasi. Karena sering kali kita terlalu sibuk buat terlihat “baik-baik aja,” padahal yang kita butuhin cuma ruang buat jadi diri sendiri.</p>
+      <p><i>"Iris" by Goo Goo Dolls</i>
+         <div style="text-align:center; margin-top:20px;">
+          <iframe width="560" height="315" 
+          src="https://www.youtube.com/embed/NdYWuo9OFAw?si=XYsmOPO_qMqQFk1c"
+          title="Iris by Goo Goo Dolls"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>       
+    </p>
+    <h3>The Song That Hits Different</h3>
+    <p>Dari sekian banyak lagu yang pernah aku dengar, “Iris” by Goo Goo Dolls selalu punya tempat spesial. Lagu ini terdengar klasik, tapi setiap kali aku dengar ulang, rasanya tetap hangat dan real. Buatku, lagu ini bukan cuma tentang cinta, tapi tentang keinginan untuk <em>be understood, not just seen</em>.</p>
+    <p>Bagian yang paling kena itu waktu liriknya bilang:<br> <em>“I just want you to know who I am.”</em></p>
+    <p>Kalimat sesederhana itu bisa jadi refleksi paling jujur dari hati seseorang yang pengin dipahami tanpa topeng. Kadang kita juga ingin hal yang sama, nggak harus dimengerti sepenuhnya, tapi cukup ada seseorang yang benar-benar mau tahu siapa kita tanpa menilai. Lagu ini ngingetin aku bahwa jujur sama diri sendiri itu juga bentuk komunikasi. Karena sering kali kita terlalu sibuk buat terlihat “baik-baik aja,” padahal yang kita butuhin cuma ruang buat jadi diri sendiri.</p>
 
-        <h3>Reflection: When Words Fail, Music Speaks</h3>
-        <p>Setiap kali aku denger “Iris”, rasanya kayak ngobrol sama diri sendiri di tengah malam yang tenang. Suaranya lembut tapi emosional, dan cara Goo Goo Dolls nyanyiin setiap baitnya bikin liriknya terasa hidup. Lagu ini buat aku jadi pengingat bahwa nggak semua hal bisa dijelaskan lewat kata-kata. <em>Sometimes, the heart just speaks louder than the mind.</em> Dan di situ, musik jadi jembatan antara yang nggak bisa diucapkan dan yang tetap ingin disampaikan. Aku juga ngerasa, lagu ini ngajarin bahwa <em>vulnerability</em> bukan kelemahan. Justru keberanian terbesar datang dari saat kita berani menunjukkan sisi yang paling manusiawi, meski dunia kadang nggak ngerti.</p>
+    <h3>Reflection: When Words Fail, Music Speaks</h3>
+    <p>Setiap kali aku denger “Iris”, rasanya kayak ngobrol sama diri sendiri di tengah malam yang tenang. Suaranya lembut tapi emosional, dan cara Goo Goo Dolls nyanyiin setiap baitnya bikin liriknya terasa hidup. Lagu ini buat aku jadi pengingat bahwa nggak semua hal bisa dijelaskan lewat kata-kata. <em>Sometimes, the heart just speaks louder than the mind.</em> Dan di situ, musik jadi jembatan antara yang nggak bisa diucapkan dan yang tetap ingin disampaikan. Aku juga ngerasa, lagu ini ngajarin bahwa <em>vulnerability</em> bukan kelemahan. Justru keberanian terbesar datang dari saat kita berani menunjukkan sisi yang paling manusiawi, meski dunia kadang nggak ngerti.</p>
 
-      <h3>The Lyrics: Between Love, Fear, and Truth</h3>
-      <p>Kalau diperhatiin, lirik “Iris” sebenarnya penuh kontras, antara cinta dan ketakutan, antara keinginan untuk dekat tapi juga takut terluka.</p>
-      <p>Lirik seperti:<br>
-      <em>“And I don’t want the world to see me, ‘cause I don’t think that they’d understand”</em><br>
-      itu menggambarkan rasa ragu yang sering banget dirasain banyak orang: ingin dipahami, tapi takut nggak diterima.</p>
-      <p>Aku pribadi ngerasa itu sangat manusiawi. Karena kadang kita menahan diri buat jujur, bukan karena nggak mau, tapi karena takut dunia nggak siap buat tahu versi asli kita.</p>
-      <p>Lagu ini juga ngasih makna bahwa cinta sejati itu bukan tentang kesempurnaan, tapi tentang penerimaan. Bahwa kita nggak perlu selalu bersinar terang, cukup jadi diri sendiri, dan itu udah cukup indah.</p>
-      <p><em>It’s the honesty that makes us real, not perfection.</em></p>
+    <h3>The Lyrics: Between Love, Fear, and Truth</h3>
+    <p>Kalau diperhatiin, lirik “Iris” sebenarnya penuh kontras, antara cinta dan ketakutan, antara keinginan untuk dekat tapi juga takut terluka.</p>
+    <p>Lirik seperti:<br>
+    <em>“And I don’t want the world to see me, ‘cause I don’t think that they’d understand”</em><br>
+    itu menggambarkan rasa ragu yang sering banget dirasain banyak orang: ingin dipahami, tapi takut nggak diterima.</p>
+    <p>Aku pribadi ngerasa itu sangat manusiawi. Karena kadang kita menahan diri buat jujur, bukan karena nggak mau, tapi karena takut dunia nggak siap buat tahu versi asli kita.</p>
+    <p>Lagu ini juga ngasih makna bahwa cinta sejati itu bukan tentang kesempurnaan, tapi tentang penerimaan. Bahwa kita nggak perlu selalu bersinar terang, cukup jadi diri sendiri, dan itu udah cukup indah.</p>
+    <p><em>It’s the honesty that makes us real, not perfection.</em></p>
 
-      <div class="nav-buttons">
-        <button onclick="showSection(1)">← Back</button>
-        <button onclick="showSection(3)">Next →</button>
-      </div>
     </div>
 
-    <!-- SECTION 4 -->
     <div class="section" id="uts3">
-      <h2>UTS 3: My Stories</h2>
+      <h2>UTS 3: My Stories for You</h2>
       <h3>A Quiet Talk with Myself</h3>
         <img src="images/itbb.jpg" alt="Welcome Image" width="400" style="display:block; margin:20px auto; border-radius:12px;">
         <p>Akhir-akhir ini, aku mulai sadar kalau tumbuh itu bukan tentang seberapa cepat kita bisa sampai di tujuan, 
@@ -343,13 +288,8 @@
         <p>
             Karena pada akhirnya, kedamaian nggak datang dari kesempurnaan, tapi dari penerimaan.
         </p>
-      <div class="nav-buttons">
-        <button onclick="showSection(2)">← Back</button>
-        <button onclick="showSection(4)">Next →</button>
-      </div>
     </div>
 
-    <!-- SECTION 5 -->
     <div class="section" id="uts4">
       <h2>UTS 4: My SHAPE</h2>
       <p>SHAPE adalah akronim dari Spiritual Gifts, Heart, Abilities, Personality, dan Experiences.</p>
@@ -397,52 +337,21 @@
         tapi tentang hubungan yang tulus dengan orang lain. Itulah kenapa aku ingin terus berkembang, bukan cuma untuk sukses, tapi juga untuk memberi makna.
         <em>Because at the end of the day, being true feels better than being perfect.</em>
       </p>
-      <div class="nav-buttons">
-        <button onclick="showSection(3)">← Back</button>
-        <button onclick="showSection(5)">Next →</button>
-      </div>
     </div>
 
-    <!-- SECTION 6 -->
     <div class="section" id="uts5">
-      <h2>UTS 5: My Personal Reviews</h2>
-      <p>Refleksi akhir tentang pembelajaran dan perjalanan pribadi selama mata kuliah ini.</p>
-      <div class="nav-buttons">
-        <button onclick="showSection(4)">← Back</button>
-      </div>
+      <h2>UTS-5 My Personal Reviews</h2>
+      <p>Pproses asesmen berlangsung.</p>
     </div>
-  </div>
 
-  <!-- TOC KANAN -->
-  <div class="toc">
-    <h3>Daftar Isi</h3>
-    <a href="#" onclick="showSection(0)">Welcome</a>
-    <a href="#" onclick="showSection(1)">UTS 1 - All About Me</a>
-    <a href="#" onclick="showSection(2)">UTS 2 - My Songs</a>
-    <a href="#" onclick="showSection(3)">UTS 3 - My Stories</a>
-    <a href="#" onclick="showSection(4)">UTS 4 - My SHAPE</a>
-    <a href="#" onclick="showSection(5)">UTS 5 - Reviews</a>
-  </div>
-
-  <!-- SCRIPT -->
   <script>
-    let sections = document.querySelectorAll('.section');
-
-    function showSection(index) {
-      sections.forEach((sec, i) => {
-        sec.classList.remove('active');
-        if (i === index) sec.classList.add('active');
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-      window.scrollTo(0, 0);
-    }
-
-    function searchText() {
-      let input = document.getElementById("searchInput").value.toLowerCase();
-      sections.forEach(section => {
-        let text = section.innerText.toLowerCase();
-        section.style.display = text.includes(input) ? "block" : "none";
-      });
-    }
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
